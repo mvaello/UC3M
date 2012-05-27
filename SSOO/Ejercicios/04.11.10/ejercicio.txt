@@ -1,0 +1,7 @@
+
+Realizar un programa que cree 10 threads para sumar los datos de un fichero que contiene 1000 números enteros. 
+Cada thread  debe sumar 100 números del fichero. 
+El thread n sumará los números entre n*100 y (n*10)+99 del array (n varía de 0 a 9)
+
+Cuando terminen el programa principal escribirá la suma total.
+

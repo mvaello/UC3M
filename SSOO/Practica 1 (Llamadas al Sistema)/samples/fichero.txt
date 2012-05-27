@@ -1,0 +1,7 @@
+volante	5.68	1	870
+asiento	235.653	2	240
+rueda	890.0	3	90
+llanta	505.05	4	489
+puerta	400.7	5	150
+radiador	95.87	6	710
+bateria	35.1	7	368
