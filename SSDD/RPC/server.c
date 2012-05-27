@@ -28,14 +28,14 @@ bool_t ping_rpc_1_svc(char* byte, char *result, struct svc_req *rqstp) {
 
 //Servicio de SWAP.
 bool_t swap_rpc_1_svc(struct swap_data* data_in, struct swap_data *data_out, struct svc_req *rqstp) {
-	//Contador de estadísticas.
-	pthread_mutex_lock(&stats_mutex[1]);
-	stats[1]++;
-	pthread_mutex_unlock(&stats_mutex[1]);
-
 	//Petición de intercambio de letras.
 	struct sockaddr_in *client_addr = svc_getcaller(rqstp->rq_xprt);
 	if(ntohl(data_in->iter) == 0) {
+		//Contador de estadísticas.
+		pthread_mutex_lock(&stats_mutex[1]);
+		stats[1]++;
+		pthread_mutex_unlock(&stats_mutex[1]);
+
 		printf("s> %s:%d init swap %u\n", inet_ntoa(client_addr->sin_addr), ntohs(client_addr->sin_port), ntohl(data_in->total_length));
 	}
 
@@ -80,14 +80,14 @@ bool_t swap_rpc_1_svc(struct swap_data* data_in, struct swap_data *data_out, str
 
 //Servicio de HASH.
 bool_t hash_rpc_1_svc(struct hash_pet *data_in, struct hash_res *data_out, struct svc_req *rqstp) {
-	//Contador de estadísticas.
-	pthread_mutex_lock(&stats_mutex[2]);
-	stats[2]++;
-	pthread_mutex_unlock(&stats_mutex[2]);
-
 	//Petición de hash.
 	struct sockaddr_in *client_addr = svc_getcaller(rqstp->rq_xprt);
 	if(ntohl(data_in->iter) == 0) {
+		//Contador de estadísticas.
+		pthread_mutex_lock(&stats_mutex[2]);
+		stats[2]++;
+		pthread_mutex_unlock(&stats_mutex[2]);
+
 		printf("s> %s:%d init hash %u\n", inet_ntoa(client_addr->sin_addr), ntohs(client_addr->sin_port), ntohl(data_in->total_length));
 	}
 
@@ -121,14 +121,14 @@ bool_t hash_rpc_1_svc(struct hash_pet *data_in, struct hash_res *data_out, struc
 
 //Servicio de CHECK.
 bool_t check_rpc_1_svc(struct check_pet *data_in, struct check_res *data_out, struct svc_req *rqstp) {
-	//Contador de estadísticas.
-	pthread_mutex_lock(&stats_mutex[3]);
-	stats[3]++;
-	pthread_mutex_unlock(&stats_mutex[3]);
-
 	//Petición check.
 	struct sockaddr_in *client_addr = svc_getcaller(rqstp->rq_xprt);
 	if(ntohl(data_in->iter) == 0) {
+		//Contador de estadísticas.
+		pthread_mutex_lock(&stats_mutex[3]);
+		stats[3]++;
+		pthread_mutex_unlock(&stats_mutex[3]);
+
 		printf("s> %s:%d init check %u %u\n", inet_ntoa(client_addr->sin_addr), ntohs(client_addr->sin_port), ntohl(data_in->total_length), ntohl(data_in->hash_client));
 	}
 
